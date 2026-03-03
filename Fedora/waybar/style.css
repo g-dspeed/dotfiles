@@ -1,0 +1,81 @@
+/* 1. IMPORT HARUS DI PALING ATAS */
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "SF Pro Text", "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0); /* Transparan penuh agar dekorasi terlihat */
+    border-radius: 13px;
+}
+
+/* Container utama untuk modul kiri, tengah, dan kanan */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: rgba(0, 0, 0, 0.6); /* Efek kaca gelap */
+    border-radius: 15px;
+    padding: 0 10px;
+    margin: 5px 0;
+}
+
+/* Pengaturan warna ikon & teks menggunakan variabel dinamis Pywal */
+#clock       { color: @color1; }
+#pulseaudio  { color: @color2; }
+#network     { color: @color3; }
+#cpu         { color: @color4; }
+#memory      { color: @color5; }
+#temperature { color: @color6; }
+#window      { color: @foreground; }
+#tray        { color: @foreground; }
+
+/* Padding antar modul */
+#clock, #pulseaudio, #network, #cpu, #memory, #temperature, #window {
+    padding: 0 10px;
+}
+
+/* Indikator khusus saat mute atau error */
+#pulseaudio.muted {
+    color: @color8; /* Warna redup saat mute */
+}
+
+#custom-notification {
+    color: @color7;
+    margin: 0 12px;
+}
+
+/* --- PERBAIKAN OFFSIDE & SPACING --- */
+
+.modules-left {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 0 15px; /* Ditambah dari 10 ke 15 agar tidak mepet tepi */
+    margin: 5px 0;
+}
+
+#workspaces button {
+    padding: 0 8px; /* Memberi jarak antar angka/titik workspace */
+    color: @color15;
+}
+
+#window {
+    margin-left: 20px; /* INI KUNCINYA: Memberi jarak agar tidak offside */
+    color: @color9;
+    font-weight: bold;
+}
+
+#custom-weather {
+    color: @color3; /* Akan mengikuti warna aksen dari pywal */
+    padding: 0 10px;
+}
+
+/* Modul kanan juga disesuaikan agar simetris */
+.modules-right {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 0 12px;
+    margin: 5px 0;
+}
